@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heroku UserBot Docs - Quickstart Development</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="background-aurora"></div>
+
+    <nav class="sidebar" id="sidebar-placeholder">
+        <p style="padding: 20px; text-align: center; color: var(--text-muted);">Loading navigation...</p>
+    </nav>
+
+    <main class="content">
+        <h1>Quickstart Development</h1>
+        <p>In order to write your first module, let's take a look at the basic structure:</p>
+        <pre><code class="language-python">
+from hikkatl.types import Message
+from .. import loader
+
+
+@loader.tds
+class MyModule(loader.Module):
+    """My module"""
+    strings = {"name": "MyModule", "hello": "Hello world!"}
+    strings_ru = {"hello": "Привет мир!"}
+    strings_es = {"hello": "¡Hola mundo!"}
+    strings_de = {"hello": "Hallo Welt!"}
+
+    @loader.command(
+        ru_doc="Привет мир!",
+        es_doc="¡Hola mundo!",
+        de_doc="Hallo Welt!",
+        # ...
+    )
+    async def helloworld(self, message: Message):
+        """Hello world"""
+        await utils.answer(message, self.strings("hello"))
+    </code></pre>
+
+    <p>The first line imports the <code>Message</code> type from hikkatl.types and the loader module from <code>..</code>. The <code>loader</code> module contains all the necessary functions and classes to create a module.</p>
+    <p><code>@loader.tds</code> is a decorator that makes module translateable (<code>tds</code> comes from <code>translateable_docstring</code>). In the class docstring you should specify brief information about the module so that user, that reads it can understand, what it does.</p>
+    <p>The <code>strings</code> dictionary is a special object, that contains translations for translateable strings. Suffix with desired language will allow user to use the module in the selected language. If there is no translation for the selected language, the default one will be used.</p>
+    <p>The <code>@loader.command</code> decorator is used to mark a function as a command. It takes a lot of arguments. Most important ones are translations. <code>XX_doc</code> makes description for command in the language XX.</p>    
+    <p><code>utils.answer</code> is an asyncronous function that answers the message. If it's possible to edit the message, it will edit it, otherwise it will send a new message. It always returns the resulted message so you can edit it again in the same command.</p>
+</main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="script.js"></script>
+</body>
