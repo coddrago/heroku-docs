@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heroku UserBot Docs - Setup Guide</title>
+    <title>Heroku UserBot Docs - FAQ</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css">
     <link rel="stylesheet" href="style.css">
@@ -16,7 +16,30 @@
     </nav>
 
     <main class="content">
-        <h1>TODO</h1>
+        <h1>Heroku UserBot Docs - FAQ</h1>
+        <h3>1. I received an update in inline bot, is it worth updating??</h3>
+        <h4>How long ago did you stop updating just because you switched to a fork? I always write what's changed in the update, if you don't want to, don't update, live with bugs. </h4>
+        <h2>
+        <h3>2. Why is there no help with beta versions?</h3>
+        <h4>Because beta versions are beta, there will be no help with them, because the developer knows that there are bugs or flaws and he is actively fixing and correcting them.</h4>
+        <h2>
+        <h3>3. Why are some modules in /presets not downloaded?</h3>
+        <h4>Restart Heroku and download the preset pack again. This is due to unused dependencies.</h4>
+        <h2>
+        <h3>4. When will the beta version be released?</h3>
+        <h4>Never. Live with it. When she's ready, she'll come out.</h4>
+        <h2>
+        <h3>5. How do I get the html tag of a specific text selection? (for example, quotes)</h3>
+        <h4>Reply to the message with the command <code>.e r.text</code>, it's not difficult.</h4>
+        <h2>
+        <h3>6. How do I remove the Heroku label from my info? the old way doesn't help!</h3>
+        <h4>Easy! Enter the <code>fcfg herokuinfo show_heroku False</code> command and that's it.</h4>
+        <h2>
+        <h3>7. I have a <code>no query results</code> error, how can I fix it?</h3>
+        <h4>Either just restart your userbot <code>.restart -f</code>, or if that doesn't help, change the inline bot <code>.ch_heroku_bot {new bot username}</code></h4>
+        <h2>
+        <h3>8. What should I do if I get spam in logs from telegram servers?</h3>
+        <h4>It's simple! <code>fcfg tester tglog_level ERROR</code> and you will no longer be spammed. <strong>Important! this command will allow the user to send logs from telegram <i>only with information like "error"</i>, if you are a developer, I recommend leaving it as it is.</strong></h4>
     </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>

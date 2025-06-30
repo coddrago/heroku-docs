@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heroku UserBot Docs - Setup Guide</title>
+    <title>Heroku UserBot Docs - Config Validators</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css">
     <link rel="stylesheet" href="style.css">
@@ -63,7 +63,7 @@ class MyModule(loader.Module):
         <li><code>Emoji</code> - Valid emoji(-s)</li>
         <li><code>EntityLike</code> - Valid entity (user, chat, channel etc.) - link, id or url</li>
     </ul>
-    <h3>You can create your own validators. For this purpose use the base class <code>Validator</code> (<code>hikka.loader.validators.Validator</code>):</h3>
+    <h3>You can create your own validators. For this purpose use the base class <code>Validator</code> (<code>heroku.loader.validators.Validator</code>):</h3>
     <pre><code class="language-python">
 class Cat(Validator):
     def __init__(self):
