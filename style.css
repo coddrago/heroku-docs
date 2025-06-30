@@ -311,3 +311,108 @@ blockquote strong { font-style: normal; color: var(--text-color); }
         filter: blur(120px);
     }
 }
+
+/* Modules Grid */
+.modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 4rem;
+}
+
+.module-card {
+    background: rgba(139, 92, 246, 0.1);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 12px;
+    padding: 1.2rem;
+    text-align: center;
+    color: var(--text-light);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.module-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg,
+        rgba(139, 92, 246, 0.1),
+        rgba(236, 72, 153, 0.1)
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.module-card:hover {
+    transform: translateY(-5px);
+    background: rgba(139, 92, 246, 0.2);
+}
+
+.module-card:hover::before {
+    opacity: 1;
+}
+
+.module-card .emoji {
+    font-size: 1.5rem;
+    margin-bottom: 0.2rem;
+    z-index: 1;
+}
+
+.module-card .channel-name {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    z-index: 1;
+}
+
+.module-card:hover .channel-name {
+    color: var(--text-light);
+}
+
+/* Commands Section */
+.commands-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+}
+
+.command-card {
+    background: rgba(139, 92, 246, 0.1);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.command-card:hover {
+    transform: translateX(5px);
+    background: rgba(139, 92, 246, 0.2);
+}
+
+.command-card code {
+    display: block;
+    font-family: monospace;
+    font-size: 1.1rem;
+    color: var(--accent-purple);
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .modules-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .commands-grid {
+        grid-template-columns: 1fr;
+    }
+}
